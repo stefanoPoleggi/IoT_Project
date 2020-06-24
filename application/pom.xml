@@ -1,10 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>IoTProject</groupId>
-  <artifactId>IoTProject</artifactId>
+  <groupId>IoT_Project</groupId>
+  <artifactId>IoT_Project</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>IoTProject</name>
-   <repositories>
+  <name>IoT_Project</name>
+  
+  <repositories>
     <repository>
       	<id>repo.eclipse.org</id>
       	<name>Californium Repository</name>
@@ -18,16 +19,13 @@
          <artifactId>californium-core</artifactId>
          <version>1.1.0-SNAPSHOT</version>
     </dependency>
-    
-     <dependency>
-    <groupId>com.googlecode.json-simple</groupId>
-    <artifactId>json-simple</artifactId>
-    <version>1.1.1</version>
+  
+  <dependency>
+		<groupId> com.googlecode.json-simple</groupId>
+		<artifactId>json-simple</artifactId>
+		<version>1.1.1</version>
 	</dependency>
-    
-  </dependencies>
-
- 
+ </dependencies>
  	<build>
 		<plugins>
 			<plugin>
@@ -44,7 +42,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>iot.server.MyServer</mainClass>
+							<mainClass>IoT_Project.IoT_Project.MyServer</mainClass>
 							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
 						</manifest>
 					</archive>
@@ -87,6 +85,10 @@
 				</executions>
 			</plugin>
 		</plugins>
-	</build> 
+	</build>
+ 
+ 
+  
+  
   
 </project>
