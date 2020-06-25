@@ -23,7 +23,7 @@ public class ObserveResource implements CoapHandler {
 	private String name;
 	int numIns=0;
 	int maxSensing = 35;
-	
+	boolean yellow_alert=false;
 	
 	public ObserveResource(String name) {
 		super();
@@ -60,12 +60,14 @@ public class ObserveResource implements CoapHandler {
 			values.add(value);
 			if(tmp >=0.03 && tmp<=0.08) {
 				alert.add("GREEN");
+				yellow_alert =false;
 			}else if(tmp>=0.08 && tmp <= 0.2) {
 				alert.add("YELLOW");
 				printAlert("YELLOW", value, timestamp);
 			}else {
 				alert.add("RED");
 				printAlert("RED", value, timestamp);
+				yellow_alert=false;
 			}
 			//System.out.println("Registered " + value + " timestamp " + timestamp);
 		}catch(org.json.simple.parser.ParseException e) {
@@ -84,8 +86,16 @@ public class ObserveResource implements CoapHandler {
 	}
 	
 	public void printAlert(String lev, String val, Timestamp t) {
-		System.out.println("Alert level: " + lev + " on " + name + ", carbon dioxide level:" + val + " at " + t);  
-		
+		if(lev.equals("YELLOW")) {
+			if(!yellow_alert) {
+				System.out.println("Alert level: " + lev + " on " + name + ", carbon dioxide level:" + val + " at " + t);
+				yellow_alert =true;
+			}else {
+				yellow_alert=false;
+			}
+		}else {
+			System.out.println("Alert level: " + lev + " on " + name + ", carbon dioxide level:" + val + " at " + t);
+		}	
 	}
 	
 	@Override
