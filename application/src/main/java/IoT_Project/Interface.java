@@ -59,7 +59,7 @@ public class Interface {
 					if(!command[1].contentEquals("ALL")) {
 						setStatus(command[1]+" "+command[2], command[3]); //set a specific actuator
 					}else {
-						setAll(command[1]); //set all actuators
+						setAll(command[2]); //set all actuators
 					}
 					break;
 				case "HISTORIC": //show the historic of the sensing of a sensor
@@ -245,7 +245,7 @@ public class Interface {
 				CoapResponse response = r.post("mode=" + mode, MediaTypeRegistry.TEXT_PLAIN);
 				String resCode = response.getCode().toString();
 				if(resCode.startsWith("2")) {
-					System.out.println("Acturator " + r.getName() + " setted " + mode);
+					System.out.println("Actuator " + r.getName() + " setted " + mode);
 				}else {
 					System.out.println("Error " + resCode);
 				}
@@ -272,6 +272,12 @@ public class Interface {
 	public static boolean validCommand(String[] command ) {
 		switch(command[0]) {
 			case "GET":
+				if(command[1].equals("Node")&&!(command.length==4)) {
+					return false;
+				}
+				if(command[1].equals("ALL")&&!(command.length==3)) {
+					return false;
+				}
 				if(command[1].equals("ALL")&&(command[2].equals("sensors")||command[2].equals("actuators"))) {
 					return true;
 				}else if(command[1].equals("Node")&&(command[3].equals("sensor")||command[3].equals("actuator"))) {
@@ -280,8 +286,14 @@ public class Interface {
 					return false;
 				}
 			case "SET":
-				if(command[1].equals("Node")&&((command[3].equals("on")||command[3].equals("off")))) {
-					return true;
+				if(command[1].equals("Node")) {
+					if(!(command.length==4)) {
+						return false;
+					}
+					if((command[3].equals("on")||command[3].equals("off"))) {
+						return true;
+					}
+					
 				}else if(command[1].equals("ALL")){
 					return true;
 				}else {

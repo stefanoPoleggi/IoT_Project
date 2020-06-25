@@ -89,23 +89,6 @@ static void res_get_handler(coap_message_t *request, coap_message_t *response, u
 
 
 
-/*if(accept == TEXT_PLAIN){
-		coap_set_header_content_format(response, TEXT_PLAIN);
-		switch(alert_level){
-			case GREEN: coap_set_payload(response, buffer, snprintf((char *)buffer, preferred_size, "EVENT %lu, carbon_dioxide_level: %lf, timestamp: %lu, level_ %s", (unsigned long) counter, carbon_dioxide_level, timest, "GREEN"));break;
-			case YELLOW: coap_set_payload(response, buffer, snprintf((char *)buffer, preferred_size, "EVENT %lu, carbon_dioxide_level: %lf, timestamp: %lu, level_ %s", (unsigned long) counter, carbon_dioxide_level, timest, "YELLO"));break;
-			case RED: coap_set_payload(response, buffer, snprintf((char *)buffer, preferred_size, "EVENT %lu, carbon_dioxide_level: %lf, timestamp: %lu, level_ %s", (unsigned long) counter, carbon_dioxide_level, timest, "RED"));
-			
-		}
-  		
-	}else if(accept == APPLICATION_XML) {
-		coap_set_header_content_format(response, APPLICATION_XML);
-		snprintf((char *)buffer, COAP_MAX_CHUNK_SIZE, "<carbon_dioxide=\"%lf\"/>", carbon_dioxide_level);
-		coap_set_payload(response, buffer, strlen((char *)buffer));
-  	}else*/
-
-
-
 
 
 
