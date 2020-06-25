@@ -40,10 +40,10 @@ static void res_event_handler(void){
 			carbon_dioxide_level = 0.03;
 			LOG_INFO("PURIFICATION ON GREEN");
 		}else if(alert_level == YELLOW){
-			carbon_dioxide_level += increment-0.002;
+			carbon_dioxide_level += increment-0.003;
 			LOG_INFO("PURIFICATION ON YELLOW");
 		}else if(alert_level == RED){
-			carbon_dioxide_level += increment-0.004;
+			carbon_dioxide_level += increment-0.005;
 			LOG_INFO("PURIFICATION ON RED");
 		}
 	}else{
