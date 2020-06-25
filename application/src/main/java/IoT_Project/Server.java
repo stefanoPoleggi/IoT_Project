@@ -12,7 +12,6 @@ public class Server extends CoapServer {
 	
 	static public ArrayList<RegisteredResource> regResources = new ArrayList<RegisteredResource>();
 	static private Registrant reg;
-	static public int room=0;
 	
 	public Server(int p) {
 		super(p);

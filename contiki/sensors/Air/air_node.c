@@ -70,17 +70,6 @@ PROCESS_THREAD(air_process, ev, data){
 			
 		etimer_set(&timer, CLOCK_SECOND * 10);
 		}
-		res_air.trigger();
-		LOG_INFO("Event triggered\n");
-		if(alert_level == GREEN){
-			leds_set(LEDS_NUM_TO_MASK(LEDS_GREEN));
-		}else if(alert_level == YELLOW){
-			leds_set(LEDS_NUM_TO_MASK(LEDS_YELLOW));
-		}else if(alert_level == RED){
-			leds_set(LEDS_NUM_TO_MASK(LEDS_RED));
-		}
-			
-		etimer_set(&timer, CLOCK_SECOND * 10);
 	}
 	
 	PROCESS_END();

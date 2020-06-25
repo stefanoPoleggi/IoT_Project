@@ -18,7 +18,7 @@ public class Registrant extends CoapResource {
 		boolean obs;
 		String[] path;
 		String title;
-		System.out.println("Registering " + address);
+		//System.out.println("Registering " + address);
 		
 		/*Retrieve all the resource of the node*/
 		CoapClient req = new CoapClient("coap://["+address.getHostAddress()+"]:5683/.well-known/core");
@@ -49,7 +49,7 @@ public class Registrant extends CoapResource {
 			RegisteredResource newOne = new RegisteredResource(path[1].replace("<", "").replace(">", ""), title, address.toString().replace("/",""), obs );
 			if(!isPresent(newOne)) {
 				Server.regResources.add(newOne);
-				System.out.println("New resource " + newOne.getTitle() + " registered");
+				//System.out.println("New resource " + newOne.getTitle() + " registered");
 			}
 		}	
 	}
